@@ -23,7 +23,7 @@ export default function Home() {
             </div>
             <div className="flex items-center">
             <div className="item -space-y-1 text-center flex flex-col items-top justify-top mr-10 mt-20">
-                <img class="transition delay-150 inline-flex duration-300 ease-in-out" src="/atharvaisjohnwick.png" height={1000} width={1000} alt="" />
+                <img class="transition delay-150 inline-flex duration-300 ease-in-out" src="./atharvaisjohnwick.png" height={1000} width={1000} alt="" />
               </div>
             </div>
           </div>
