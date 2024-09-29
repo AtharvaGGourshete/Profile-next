@@ -18,11 +18,11 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
           <SessionWrapper>
           <Navbar />
-          <hr />
+          
           {/* <div className="min-h-[87vh] bg-gray-900 flex inline-flex"></div> */}
 
           {children}
-          <hr />
+          
           <Footer />
         </SessionWrapper>
       </body>

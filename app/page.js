@@ -1,14 +1,29 @@
-import Image from "next/image";
+'use client'
+import Login from "./login"
+import { getAuth , onAuthStateChanged } from "firebase/auth";
+import { app } from "./config";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
+  const router = useRouter();
+  const auth = getAuth(app);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if(user) {
+        router.push('./');
+      }
+    });
+  },[auth, router]);
   return (
     <main>
       <div>
-          <div className="min-h-[87vh] bg-gray-950 flex clear
+          <div className="min-h-screen bg-gray-950 flex clear
           inline-flex w-full">
             <div>
               <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white p-10 mb-1">
-                Welcome to the <span className="text-blue-600 dark:text-blue-500">DOMAIN</span> of...<br />
+                Welcome to the <span className="text-blue-600 dark:text-blue-500">DOMAIN</span> of<br />
                 <h1 class="text-blue-600 dark:text-blue-500 py-10">
                   Atharva Ganesh Gourshete.
                 </h1>{" "}
@@ -21,12 +36,22 @@ export default function Home() {
                 
               </p>
             </div>
+
+            {/* <div className="text-white">0
+              Get Started With Phone Number
+            </div> */}
+
+            
+
+
             <div className="flex items-center">
             <div className="item -space-y-1 text-center flex flex-col items-top justify-top mr-10 mt-20">
                 <img class="transition delay-150 inline-flex duration-300 ease-in-out" src="./atharvaisjohnwick.png" height={1000} width={1000} alt="" />
               </div>
             </div>
+            <hr/>
           </div>
+          
         </div>
     </main>
   );
